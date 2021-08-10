@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditorPackage.EditorController">
+   <bottom>
+       <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="88.0" prefWidth="984.0"/>
+       </SplitPane>
+   </bottom>
+   <top>
+
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="File" >
+               <MenuItem text="saveAs" onAction="#onSaveAs"/>
+               <MenuItem text="Save" onAction="#onSave"/>
+
+               <MenuItem text="load" onAction="#onLoad"/>
+               <MenuItem text="new tab" onAction="#onNewTab"/>
+               <MenuItem text="close" onAction="#onClose"/>
+           </Menu>
+           <Menu text="Undo" >
+               <MenuItem text="Undo" onAction="#onUndo"/>
+
+           </Menu>
+           <Menu text="Redo" >
+               <MenuItem text="Redo" onAction="#onRedo"/>
+           </Menu>
+           <Menu mnemonicParsing="false" text="About" onAction="#onAbout">
+               <MenuItem text="About" onAction="#onAbout"/>
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+       <ScrollPane fx:id="scroll"  fitToHeight="true">
+           <HTMLEditor fx:id="htmlEditor"
+                       htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;"
+                       prefHeight="2000" prefWidth="1000" BorderPane.alignment="CENTER"   onKeyPressed="#onKeyPressed" />
+       </ScrollPane>
+   </center>
+</BorderPane>
